@@ -1,0 +1,42 @@
+Machine Learning::Classifier
+
+I wrote this while i was testing my machine learning knowledge at a programming contest Quora Marathon Code-sprint. http://quoramarathon.interviewstreet.com
+
+I have implemented Logistic Regression for binary classification. There wasn't any scope to use any library so i wrote Gradient Descent to solve theta values. It has following features
+- Binary Classification
+- Gradient Descent for solving theta values
+- Regularization
+- Feature Scaling
+- Feature Boosting
+- Reducing features by variance
+
+There are 2 classes. 
+- Classifier
+- QuoraClassifier 
+
+QuoraClassifier is basically interface that take data from a file or shell and feed to classifier to train and classify. If you want to use Classifier with your own problem data you can use by following way
+
+classifier = Classifier.new debug
+classifier.set_train_data trainData, 1000
+classifier.train 170, 50
+results = classifier.classify queryData
+
+set_train_data takes following parameters
+data - 2D array. Each row containing training data. first column is ID, second column is Y (0/1) and rest of the values are X1..Xn
+maxSample -  (Number of sample you want to use. If you pass 0 it will use data to train. Default value is 0)
+shuffle - false (If you want to shuffle data before train. Useful when you aren't using whole data set for training.
+
+train takes following parametrs
+alpha - Learning rate. Default value is 100
+maxLoop - Maximum loop for gradient descent. Default value is 1000
+lambda - Lambda value for Regularization. Default value is 0.00 (No regularization).
+
+classify takes following parameters
+queryData - 2D array. Each row containing n+1 column. First column is ID and rest of them are X0..Xn.
+
+Classify returns 2D array. First column is ID and second column is value of hypothesis. This does not return 0/1. If you want to use 0/1 use round.
+
+You can test with QuoraClassifier class. It takes data from input00.txt file and output00.txt has actual result data. It matches with actual result and compare with classification class result data. This data was provided on the contest as test data and this solution could reach unto 82.2% match. On the contest data it could reach upto 83.76%. It become 2nd for the contest and highest match was 83.91.
+
+You can see problem description here http://www.quora.com/CodesprintQuora/Quora-Answer-Classifier-week-long-problem
+You can get these test data here http://qsf.cf.quoracdn.net/QuoraAnswerClassifier_testcases.zip

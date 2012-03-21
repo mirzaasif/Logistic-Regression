@@ -40,3 +40,5 @@ You can test with QuoraClassifier class. It takes data from input00.txt file and
 
 You can see problem description here http://www.quora.com/CodesprintQuora/Quora-Answer-Classifier-week-long-problem
 You can get these test data here http://qsf.cf.quoracdn.net/QuoraAnswerClassifier_testcases.zip
+
+This code was tested under Ruby 1.8.7.
